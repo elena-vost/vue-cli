@@ -15,6 +15,12 @@
         },
         destroyed() {
             console.log('Destroyed!');
+        },
+        deactivated() {
+            console.log('deactivated!');
+        },
+        activated() {
+            console.log('activated!');
         }
 
     }
