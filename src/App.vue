@@ -1,29 +1,20 @@
 <template>
     <div class="container">
-        <app-header></app-header>
-        <hr>
         <div class="row">
-            <app-servers></app-servers>
-            <app-server-details></app-server-details>
+            <div class="col-xs-12">
+                <app-quote></app-quote>
+            </div>
         </div>
-        <hr>
-        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-    import Header from './components/Shared/Header.vue';
-    import Footer from './components/Shared/Footer.vue';
-    import Servers from './components/Server/Servers.vue';
-    import ServerDetails from './components/Server/ServerDetails.vue';
+    import Quote from './components/Quote.vue';
 
     export default {
-        components: {
-            'app-header': Header,
-            'app-servers': Servers;
-            'app-Server-details': ServerDetails;
-            'app-footer': Footer;
-        }
+       compotents: {
+        appQuote: Quote
+       }
     }
 </script>
 
