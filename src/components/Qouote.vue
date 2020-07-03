@@ -1,10 +1,13 @@
 <template>
     <div>
-        <p>Wow!</p>
+
     </div>
 </template>
 
 <script>
+    export default {
+
+    }
 </script>
 <style scoped>
     div {

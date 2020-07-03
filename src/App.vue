@@ -2,7 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <app-quote></app-quote>
+                <app-quote>
+                    <h2>WoOW</h2>
+                    <p>kfekfnowe</p>
+                </app-quote>
+
             </div>
         </div>
     </div>
