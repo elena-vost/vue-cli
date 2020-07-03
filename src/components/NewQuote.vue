@@ -23,7 +23,8 @@ import func from '../../vue-temp/vue-editor-bridge'
         },
         methods: {
             createNew() {
-                
+                this.$emit('quoteAdded', this.quote);
+                this.quote = '';
             }
         }
        }
