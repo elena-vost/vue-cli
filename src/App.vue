@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <app-new-quote @quoteAdded="NewQuote"></app-new-quote>
-        <app-quote-grid :quotes="quotes"></app-quote-grid>
+        <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="alert alert-info">Info: Click on a quote to delete it!</div>
@@ -17,15 +17,18 @@
     export default {
         data: function(){
             return {
-                quotes: {
+                quotes: [
                     "Just a Quote to see something"
-                },
+                ],
                 maxQuotes: 10
             }
         },
         methods: {
             NewQuote(quote){
                 this.quotes.push(quote);
+            },
+            deleteQuote(index) {
+                this.quotes.splice(index, 1);
             }
         },
         components: {
