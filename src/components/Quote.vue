@@ -18,4 +18,8 @@
         text-align: center;
 
     }
+
+    h2 {
+        color: red;
+    }
     </style>

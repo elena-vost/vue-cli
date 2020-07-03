@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <app-quote>
-                    <h2>WoOW</h2>
+                    <h2>{{ quoteTitle }}</h2>
                     <p>kfekfnowe</p>
                 </app-quote>
 
@@ -16,12 +16,16 @@
     import Quote from './components/Quote.vue';
 
     export default {
-       compotents: {
-        appQuote: Quote
+        data: function() {
+        return {
+               quoteTitle: 'The Quote'
+            }
+        },
+        compotents: {
+            appQuote: Quote
        }
     }
 </script>
 
 <style>
-
 </style>
