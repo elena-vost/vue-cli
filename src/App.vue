@@ -5,6 +5,7 @@
                 <h1>Built-in Directives</h1>
                 <p v-text="'Some text'"></p>
                 <p>MKLMMMMO</p>
+                <p>sndsdljsledje</p>
                 <p v-html="'<strong>Strong text</strong>'"></p>
             </div>
        </div>      
