@@ -2,16 +2,13 @@
    <div class="container">
        <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>Filters and Mixins</h1>
-                <p>{{ text |  toUppercase | to-lowercase }}</p>
+                <h1>Animations</h1>
                 <hr>
-                <button @click="fruits.push('Berries')">Add new item</button>
-                <input v-model="filterText">
-                <ul>
-                    <li v-bind:key="fruit in filteredFruits>{{ fruit }}</li>
-                </ul>    
-                <hr>
-                <app-list></app-list>
+                <button class="btn btn-primary" @click="show = !show">Show Alert</button>
+                <br><br>
+                <transition>
+                    <div class="alert alert-info" v-if="show">This is some info</div>
+                </transition>    
             </div>
        </div>      
     </div>
@@ -19,24 +16,12 @@
 </template>
 
 <script>
-    import List from './List.vue';
-    import { fruitMixin } from './fruitMixin';
-
     export default {
-        mixins: [fruitMixin],
         data() {
-            return {
-                text: 'Hello there!',
+                return {
+                    show: false
+                }
             }
-        },
-        filters: {
-            toUppercase() {
-                return value.toUppercase();
-            }
-        },
-        components: {
-            appList: List
-        }
     }
 </script>
 
