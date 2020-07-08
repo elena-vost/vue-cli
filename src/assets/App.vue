@@ -41,7 +41,7 @@
                     @after-leave="afterLeave"
                     @leave-cancelled="leaveCancelled"
                     :css="false">
-                    <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div>
+                    <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
                 </transition>
             </div>
        </div>      
@@ -55,16 +55,27 @@
                 return {
                     show: false,
                     load: true,
-                    alertAnimation: 'fade'
+                    alertAnimation: 'fade',
+                    elementWidth: 100
                 }
             },
             methods: {
                 beforeEnter(el) {
                     console.log('beforeEnter');
+                    this.elementWidth = 100;
+                    el.style.width = this.elementWidth + 'px';
                 },
                 enter(el,done) {
                     console.log('enter');
-                    done();
+                    let round = 1;
+                    const interval = setInterval(() => {
+                        el.style.width = (this.elementWidth + round *10) + 'px';
+                        round++;
+                        if(round > 20) {
+                            clearInterval(interval);
+                            done();
+                        }
+                    }, 20);
                 },
                 afterEnter(el) {
                     console.log('afterEnter');
@@ -74,10 +85,20 @@
                 },
                 beforeLeave(el) {
                     console.log('beforeLeave');
+                    this.elementWidth = 300;
+                    el.style.width = this.elementWidth + 'px';
                 },
                 leave(el,done) {
                     console.log('leave');
-                    done();
+                    let round = 1;
+                    const interval = setInterval(() => {
+                        el.style.width = (this.elementWidth - round *10) + 'px';
+                        round++;
+                        if(round > 20) {
+                            clearInterval(interval);
+                            done();
+                        }
+                    }, 20);
                 },
                 afterLeave(el) {
                     console.log('afterLeave');
@@ -97,7 +118,7 @@
         transition: opacity 1s;
     }
     .fade-leave {
-        /* opacity: 1; */
+        opacity: 1;
     }
     .fade-leave-active {
         transition: opacity 1s;
@@ -105,14 +126,14 @@
     }
     .slide-enter {
         opacity: 0;
-        /* transform: translateY(20px); */
+        transform: translateY(20px);
     }
     .slide-enter-active {
         animation: slide-in 1s ease-out forwards;
         transition: opacity .5s;
     }
     .slide-leave {
-
+        opacity: 1;
     }
     .slide-leave-active {
         animation: slide-out 1s ease-out forwards;
