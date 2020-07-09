@@ -30,7 +30,13 @@
         },
         methods: {
             submit() {
-                console.log(this.user);
+                this.$http.post('https://vuejs-http-d3ac0.firebaseio.com/data.json',
+                this.user)
+                    .then(response => {
+                        console.log(response)
+                    }, error => {
+                        console.log(error)
+                    });
             }
         }              
     }
