@@ -11,6 +11,7 @@
                     <label>Mail</label>
                     <input class="form-control" type="text" v-model="user.email">
                 </div>
+                <p>Hy man!</p>
                 <button class="btn btn-primary" @click="submit">Submit</button>  
                 <hr>
                 <input class="form-control" type="text" v-model="node">
