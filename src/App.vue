@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import Header from './componets/Header.vue'
     export default {
         data() {
             return {
