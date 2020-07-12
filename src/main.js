@@ -1,19 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueResource from 'vue-resource'
+import VueRouter from 'vue-router'
 
-Vue.use(VueResource);
+Vue.use(VueRouter);
 
-Vue.http.options.root = 'https://vuejs-http-d3ac0.firebaseio.com';
-Vue.http.interceptors.push((request, next) => {
-  console.log(request);
-  if (request.method == 'POST') {
-    request.method = 'PUT';
-  }
-  next(response => {
-    response.json = () => { return {messages: response.body} }
-  });
-});
 
 new Vue({
   el: '#app',
