@@ -4,6 +4,7 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Routing</h1>
                 <hr>
+                <app-header></app-header>
                 <route-view></route-view>  
             </div>    
         </div>       
@@ -12,12 +13,11 @@
 </template>
 
 <script>
-    import Header from './componets/Header.vue'
+    import Header from './componets/Header.vue';
     export default {
-        data() {
-            return {
-            }
-        }             
+       components: {
+           appHeader: Header
+       }       
     }
 </script>
 
